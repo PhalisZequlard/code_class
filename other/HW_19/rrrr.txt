@@ -1,0 +1,31 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+using namespace std;
+// learn how to use pointer
+int main() {
+  int a, *p = &a;
+  printf("a = %d\n", a);
+  ifstream myfile("PlayerINFO.txt");
+  if(!myfile.is_open()){cout << "Error opening file" << endl;return 0;}
+  string name;
+  int health;
+  bool item1, item2, item3;
+  while(!myfile.eof()) {
+    getline(myfile, name, ' ');
+    getline(myfile, health, ' ');
+    myfile >> item1;
+    myfile.ignore();
+    myfile >> item2;
+    myfile.ignore();
+    myfile >> item3;
+    myfile.ignore();
+    // cout output format control
+    cout << setw(8) << "Name: "   << name   << endl;
+    cout << setw(8) << "Health: " << health << endl;
+    cout << setw(8) << "Item1: "  << item1 << endl;
+    cout << setw(8) << "Item2: "  << item2 << endl;
+    cout << setw(8) << "Item3: "  << item3 << endl;
+  }
+  return 0;
+}

@@ -1,0 +1,28 @@
+// addition (加法), subtraction (減法), multiplication (乘法) 和 division (除法)。 而動詞是：add, subtract, multiply 和 divide。 + 號是 plus sign，- 號是 minus sign， × 號是 cross sign，÷ 號是 division sign。 = 號是 equal sign，「等於」是 equals 或 is equal to。
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        long int a_int = stoi(a, nullptr, 2);
+        long int b_int = stoi(b, nullptr, 2);
+        long int c = a_int + b_int;
+        long int OUTPUT_2BINARY = 0;
+        int i = 0;
+        while(c != 0) {
+          OUTPUT_2BINARY += (c % 2) * pow(10, i);
+          c /= 2;
+            i++;
+        }
+        return to_string(OUTPUT_2BINARY);
+    }
+};
+long int a_int = stoi(a, nullptr, 2);
+long int b_int = stoi(b, nullptr, 2);
+long int c = a_int + b_int;
+long int OUTPUT_2BINARY = 0;
+int i = 0;
+while(c != 0) {
+  OUTPUT_2BINARY += (c % 2) * pow(10, i);
+  c /= 2;
+  i++;
+}
+return to_string(OUTPUT_2BINARY);
